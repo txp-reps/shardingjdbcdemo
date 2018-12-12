@@ -1,0 +1,9 @@
+
+spring:
+  application:
+    name: sharding-test
+  main:
+    web-application-type: none
+
+server:
+  port: 8888
