@@ -3,17 +3,19 @@ package com.txp.shardingjdbctest;
 import com.txp.shardingjdbctest.service.CommonService;
 import com.txp.shardingjdbctest.service.SpringPojoServiceImpl;
 import com.txp.shardingjdbctest.util.MyMapper;
+import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 import tk.mybatis.spring.annotation.MapperScan;
 
-@MapperScan(basePackages = "com.txp.shardingjdbctest.mapper",markerInterface=MyMapper.class)
+@MapperScan(basePackages = "com.txp.shardingjdbctest.mapper")
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 public class ShardingJdbcTestApplication {
     public static void main(String[] args) {
-        try (ConfigurableApplicationContext context = SpringApplication.run(ShardingJdbcTestApplication.class, args)){
+        try (ConfigurableApplicationContext context = new SpringApplicationBuilder(ShardingJdbcTestApplication.class).bannerMode(Banner.Mode.OFF).run(args)){
             process(context);
         }
     }

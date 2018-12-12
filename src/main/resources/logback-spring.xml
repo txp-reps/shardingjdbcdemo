@@ -25,7 +25,7 @@
     <logger name="jdbc.connection" additivity="true" level="ERROR">
         <appender-ref ref="CONSOLE"/>
     </logger>
-    <logger name="jdbc.resultsettable" additivity="true" level="info">
+    <logger name="jdbc.resultsettable" additivity="true" level="ERROR">
         <appender-ref ref="CONSOLE"/>
     </logger>
     <logger name="jdbc.sqltiming" additivity="true" level="INFO">

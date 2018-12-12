@@ -1,11 +1,8 @@
 package com.txp.shardingjdbctest.config;
 
-import com.alibaba.druid.pool.DruidDataSource;
-import io.shardingsphere.shardingjdbc.api.yaml.YamlMasterSlaveDataSourceFactory;
 import io.shardingsphere.shardingjdbc.api.yaml.YamlShardingDataSourceFactory;
 import net.sf.log4jdbc.sql.jdbcapi.DataSourceSpy;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -46,7 +43,7 @@ public class DataSourceConfig {
         return  YamlShardingDataSourceFactory.createDataSource(getYamlFile());
     }
     private static File getYamlFile() {
-        return new File(Object.class.getResource("/sharding-databases.yaml").getFile());
+        return new File(Object.class.getResource("/sharding-config/sharding-databases.yaml").getFile());
     }
 
 }
